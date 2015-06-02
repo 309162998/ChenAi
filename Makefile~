@@ -1,0 +1,6 @@
+Component.o:	Component.cpp	Component.cpp
+	g++	-c	$^
+Wire.o:	Wire.cpp	Wire.h
+	g++	-c	$^
+clean:	
+	rm	*.o	*.h.gch

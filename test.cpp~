@@ -1,0 +1,16 @@
+#include<iostream>
+#include"Wire.h"
+using namespace std;
+class AndGate public Gate {
+public:
+	AndGate(Wire in1, Wire in2, Wire out) {
+		in1 = in1; in2 = in2, out = out;
+	}
+	Wire in1, in2, out;
+	void trigger(bool isPar);
+};
+
+void AndGate::trigger(bool isPar) {
+	int v1=this.in1.value, v2=this.in2.value;
+	this.out.setValue((v1 & v2), isPar);
+}

@@ -1,0 +1,46 @@
+/*************************************************************************
+	> File Name: Gate.cpp
+	> Function: ***
+	> Author: LiLele
+	> Mail: 309162998@qq.com 
+	> Created Time: 2015年05月19日 星期二 16时50分07秒
+ ************************************************************************/
+
+#include<iostream>
+#include"Gate.h"
+using namespace std;
+
+void AndGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue((v1 & v2), isPar);
+}
+
+void Inverter::trigger(bool isPar) {
+	this->output.setValue(~this->input1.value, isPar);
+}
+
+void NandGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue(!(v1 & v2), isPar);
+}
+
+void OrGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue((v1 | v2), isPar);
+}
+
+void NorGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue(!(v1 | v2), isPar);
+}
+
+void XorGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue((v1 ^ v2), isPar);
+}
+
+void XnorGate::trigger(bool isPar) {
+	int v1=this->input1.value, v2=this->input2.value;
+	this->output.setValue(!(v1 ^ v2), isPar);
+}
+

@@ -1,0 +1,17 @@
+/*************************************************************************
+	> File Name: Component.cpp
+	> Function: 端点定义函数
+	> Author: LiLele
+	> Mail: 309162998@qq.com 
+	> Created Time: 2015年05月19日 星期二 16时06分26秒
+ ************************************************************************/
+
+#include<iostream>
+#include"Component.h"
+using namespace std;
+
+void Component::trigger(bool isPar) {
+	next->value = this->value;	//触发则传递信号
+}
+
+

@@ -1,0 +1,71 @@
+/*************************************************************************
+	> File Name: Gates.h
+	> Function: ***
+	> Author: LiLele
+	> Mail: 309162998@qq.com 
+	> Created Time: 2015年05月15日 星期五 18时46分05秒
+ ************************************************************************/
+
+#include<iostream>
+#include"Wire.h"
+using namespace std;
+
+class Gate		//Define Gate
+{
+	protected:
+		Wire input1, input2, output;	//
+	public:
+		Gate(){}		//不带参
+		Gate(Wire x1){input1 = x1;}	//非门时只有一个参数
+		Gate(Wire x1, Wire x2){input1 = x1; input2 = x2;}//需要两个输入的门
+//		virtual int Logical()=0;	//
+};
+
+class Inverter:public Gate {
+	public:
+		Inverter(Wire in):Gate(in){};
+		void trigger(bool isPar);
+};
+
+class AndGate:public Gate //与门,继承于Gate
+{
+	public:
+		AndGate(Wire x1, Wire x2):Gate(x1,x2){};	//获取两个输入并调给Gates类
+		void trigger(bool isPar);					//计算
+};
+
+class NandGate:public Gates//与非门
+{
+	public:
+		NandGate(Wire x1, Wire x2):Gates(x1,x2){};
+		void trigger(bool isPar);
+};
+
+class OrGate:public Gates	//或门
+{
+	public:
+		OrGate(Wire x1, Wire x2):Gates(x1,x2){};
+		void trigger(bool isPar);
+};
+
+class NorGate:public Gates	//或非
+{
+	public:
+		NorGate(Wire x1, Wire x2):Gates(x1,x2){};
+		void trigger(bool isPar);
+};
+
+class XorGate:public Gates	//异或
+{
+	public:
+		XorGate(Wire x1, Wire x2):Gates(x1,x2){}
+		void trigger(bool isPar);
+};
+
+class XnorGate:public Gates	//同或
+{
+	public:
+		XnorGate(Wire x1, Wire x2):Gates(x1,x2){}
+		void trigger(bool isPar);
+};
+
